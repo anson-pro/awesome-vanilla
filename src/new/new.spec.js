@@ -30,6 +30,6 @@ describe('实现 new 关键字', () => {
 
     const person = vanillaNew(Person, 'name');
 
-    expect(person).toBe('name');
-  })
+    expect(person).toBe(person);
+  });
 });
