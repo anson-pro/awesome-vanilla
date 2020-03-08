@@ -88,6 +88,45 @@ class Promise {
 
     return promise2;
   }
+
+  static resolve(value) {
+    return new Promise((resolve, reject) => {
+      resolve(value);
+    });
+  }
+
+  static reject(reason) {
+    return new Promise((resolve, reject) => {
+      reject(reason);
+    });
+  }
+
+  static race(promises) {
+    return new Promise((resolve, reject) => {
+      for (let i = 0; i < promises.length; i++) {
+        promises[i].then(resolve, reject);
+      }
+    });
+  }
+
+  static all(promises) {
+    let result = [];
+    let count = 0;
+    let len = promises.length;
+    return new Promise((resolve, reject) => {
+      for (let i = 0; i < len; i++) {
+        Promise.resolve(promises[i]).then((value) => {
+          count++;
+          result[i] = value;
+          if (count === len) {
+            return resolve(result);
+          }
+        }, (reason) => {
+          return reject(reason);
+        });
+      }
+    });
+  }
 }
 
 function resolvePromise(promise2, x, resolve, reject) {
