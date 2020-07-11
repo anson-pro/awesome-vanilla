@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "test:promise": "promises-aplus-tests ./src/promise/promise.js",
-    "commit": "git add . && git cz"
+    "commit": "git cz"
   },
   "license": "MIT",
   "devDependencies": {

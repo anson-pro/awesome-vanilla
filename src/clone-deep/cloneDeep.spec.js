@@ -1,12 +1,12 @@
 import cloneDeep from './cloneDeep';
 
-describe('clone deep', () => {
-	it('测试拷贝功能', function () {
+describe('deep clone test', () => {
+	it('clone', function () {
 		const source = { a: 1, b: 1, c: 1 };
 		const target = cloneDeep(source);
 		expect(target).toEqual({ a: 1, b: 1, c: 1 });
 	});
-	it('测试深度拷贝功能', function () {
+	it('deep clone object', function () {
 		const source = {
 			a: 1,
 			b: {
@@ -34,7 +34,7 @@ describe('clone deep', () => {
 			}
 		});
 	});
-	it('测试深度拷贝功能-数组', function () {
+	it('deep clone array', function () {
 		const source = [1, 2, 3];
 		const target = cloneDeep(source);
 		target[0] = 3;
